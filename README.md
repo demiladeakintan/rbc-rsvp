@@ -2,17 +2,18 @@
 
 Two thank-you pages linked from the buttons in the Reboot Camp 2026 guest invitation emails.
 
-| Page | What it's for | Link once live |
+| Page | What it's for | Live link |
 |---|---|---|
-| `yes/` | Guests who click "Yes, I'll be there" | `https://<your-username>.github.io/rbc-rsvp/yes/` |
-| `no/` | Guests who click "No, I can't make it" | `https://<your-username>.github.io/rbc-rsvp/no/` |
+| `yes/` | Guests who click "Yes, I'll be there" | https://demiladeakintan.github.io/rbc-rsvp/yes/ |
+| `no/` | Guests who click "No, I can't make it" | https://demiladeakintan.github.io/rbc-rsvp/no/ |
 
 ## What's in here
 
 - `yes/index.html` and `no/index.html`: the two pages
 - `assets/css/styles.css`: shared styles, including the brand colours at the top
 - `assets/fonts/`: Expose and Quilon
-- `assets/images/`: the poster, background, logos and browser icons
+- `assets/images/`: the poster, schedule, background, logos, browser icons and `share.jpg` (the link preview image)
+- `assets/reboot-camp-2026.ics`: the calendar file behind "Add to Apple or Outlook calendar"
 
 ## Making changes
 

@@ -1,0 +1,153 @@
+/* Reboot Camp 2026 RSVP pages: shared styles */
+
+/* Brand typefaces */
+@font-face {
+  font-family: "Expose";
+  src: url("../fonts/Expose-Variable.woff2") format("woff2");
+  font-weight: 400 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Quilon";
+  src: url("../fonts/Quilon-Variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* Brand colours. Change a colour here and it updates everywhere. */
+:root {
+  --base: #F37022;    /* shows while the background image loads */
+  --panel: #FEF0CB;   /* cream panel behind the text */
+  --ink: #21409A;     /* navy text and Celebration Church logo */
+  --accent: #EC1D23;  /* red triangle */
+  --dim: transparent; /* darkens the background in dark mode */
+  color-scheme: light;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--base);
+}
+
+/* Dark mode: follows the guest's phone or computer setting */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --panel: #21409A;
+    --ink: #FEF0CB;
+    --dim: rgba(14, 22, 60, 0.4);
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--base);
+  color: var(--ink);
+  font-family: "Expose", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 450;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Gradient background, fixed behind the page */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background: url("../images/background.jpg") 62% 0 / cover no-repeat;
+}
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--dim);
+}
+
+/* Red triangle with the Reboot Camp logo */
+.mark {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(80vw, 380px);
+  height: auto;
+  margin: 0 auto;
+}
+.mark .shape { fill: var(--accent); }
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 38rem;
+  margin: 0 auto;
+  padding: 1.75rem 1rem 3rem;
+}
+
+.panel {
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 28px;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Quilon", "Arial Black", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 7vw, 3rem);
+  line-height: 1.06;
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+.lead {
+  font-size: 1.25rem;
+  line-height: 1.45;
+  max-width: 30rem;
+  margin: 0 auto 2rem;
+  text-wrap: pretty;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 1.75rem;
+  margin: 0 0 2.25rem;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+.facts span { text-wrap: balance; }
+
+.flier {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  margin: 0 auto 2.25rem;
+  border-radius: 14px;
+}
+
+.note {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  max-width: 28rem;
+  margin: 0 auto;
+  text-wrap: pretty;
+}
+
+/* Celebration Church logo, coloured to match the text */
+.sign {
+  width: 124px;
+  aspect-ratio: 839 / 406;
+  margin: 2.5rem auto 0;
+  background: var(--ink);
+  -webkit-mask: url("../images/celebration-church-logo.png") center / contain no-repeat;
+  mask: url("../images/celebration-church-logo.png") center / contain no-repeat;
+}

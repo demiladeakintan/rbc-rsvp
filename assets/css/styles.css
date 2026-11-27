@@ -149,10 +149,11 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.625rem;
-  margin: -0.75rem auto 2.25rem;
+  margin: 1rem auto 2.25rem;
   max-width: 22rem;
 }
-.actions--spaced { margin-top: 1rem; }
+/* Right under the dates and venue, the buttons sit a little closer */
+.facts + .actions { margin-top: -0.75rem; }
 .button {
   flex: 1 1 100%;
   display: inline-flex;

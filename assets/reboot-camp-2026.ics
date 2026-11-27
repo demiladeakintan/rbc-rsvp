@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Celebration Church International//Reboot Camp 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:reboot-camp-2026@joincci.org
+DTSTAMP:20261127T000000Z
+DTSTART;VALUE=DATE:20261203
+DTEND;VALUE=DATE:20261207
+SUMMARY:Reboot Camp 2026
+LOCATION:National Stadium\, Surulere\, Lagos
+DESCRIPTION:Session times (Lagos\, WAT):\nThursday 3 December: 5pm\nFriday 
+ 4 December: 6am and 6pm\nSaturday 5 December: 6am\, then the vigil from 8p
+ m\n\nYour arrival details are in your invitation email.
+END:VEVENT
+END:VCALENDAR

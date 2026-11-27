@@ -17,7 +17,7 @@
 /* Brand colours. Change a colour here and it updates everywhere. */
 :root {
   --base: #F37022;    /* shows while the background image loads */
-  --panel: #FEF0CB;   /* cream panel behind the text */
+  --panel: #D5BCF5;   /* lavender panel behind the text */
   --ink: #21409A;     /* navy text and Celebration Church logo */
   --accent: #EC1D23;  /* red triangle */
   --dim: transparent; /* darkens the background in dark mode */
@@ -61,6 +61,15 @@ body {
   z-index: 0;
   background: url("../images/background.jpg") 62% 0 / cover no-repeat;
 }
+/* Light grain over the background, to match the posters' printed texture */
+.backdrop::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.32;
+  mix-blend-mode: overlay;
+}
 .backdrop::after {
   content: "";
   position: absolute;
@@ -78,6 +87,15 @@ body {
   margin: 0 auto;
 }
 .mark .shape { fill: var(--accent); }
+
+/* Entrance: the triangle drops in once and the panel rises in after it */
+.mark { animation: drop 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.panel { animation: rise 600ms cubic-bezier(0.2, 0.8, 0.2, 1) 180ms both; }
+@keyframes drop { from { transform: translateY(-100%); } to { transform: none; } }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .mark, .panel { animation: none; }
+}
 
 main {
   position: relative;
@@ -125,6 +143,34 @@ h1 {
 }
 .facts span { text-wrap: balance; }
 
+/* Calendar and directions buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.625rem;
+  margin: -0.75rem auto 2.25rem;
+  max-width: 22rem;
+}
+.button {
+  flex: 1 1 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.button:hover { background: var(--ink); color: var(--panel); }
+.button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
 .flier {
   display: block;
   width: 100%;
@@ -133,6 +179,10 @@ h1 {
   margin: 0 auto 2.25rem;
   border-radius: 14px;
 }
+
+/* The schedule opens full size when tapped */
+.zoom { display: block; border-radius: 14px; }
+.zoom:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 .note {
   font-size: 1.125rem;
